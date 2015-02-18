@@ -26,7 +26,7 @@ class UM_Shortcodes {
 		}
 
 		$file = um_path . 'templates/' . $tpl . '.php';
-		$theme_file = get_stylesheet_directory() . '/ultimate-member/templates/' . $tpl . '.php';
+		$theme_file = get_template_directory() . '/ultimate-member/templates/' . $tpl . '.php';
 
 		if ( file_exists( $theme_file ) )
 			$file = $theme_file;
@@ -174,7 +174,7 @@ class UM_Shortcodes {
 	function template_exists( $template ) {
 		
 		$file = um_path . 'templates/'. $template . '.php';
-		$theme_file = get_stylesheet_directory() . '/ultimate-member/templates/' . $template . '.php';
+		$theme_file = get_template_directory() . '/ultimate-member/templates/' . $template . '.php';
 		
 		if ( file_exists( $theme_file ) || file_exists( $file ) )
 			return true;
