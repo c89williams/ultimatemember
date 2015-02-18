@@ -342,8 +342,8 @@
 						
 						$current_tab = $ultimatemember->account->current_tab;
 						
-						if ( um_get_option('account_tab_'.$id ) == 1 || $id == 'general' ) { ?>
 				
+						if ( $force_show || um_get_option('account_tab_'.$id ) == 1 || $id == 'general' ) { ?>
 				<li>
 					<a data-tab="<?php echo $id; ?>" href="<?php echo $ultimatemember->account->tab_link($id); ?>" class="um-account-link <?php if ( $id == $current_tab ) echo 'current'; ?>">
 						
