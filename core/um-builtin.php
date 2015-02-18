@@ -33,6 +33,10 @@ class UM_Builtin {
 		foreach ($fields as $field ) {
 			if ( isset( $this->predefined_fields[$field] ) ) {
 				$array[$field] = $this->predefined_fields[$field];
+			} elseif ( isset( $this->saved_fields[$field] ) ) {
+				$array[$field] = $this->saved_fields[$field];
+			} elseif ( isset( $this->custom_fields[$field] ) ) {
+				$array[$field] = $this->custom_fields[$field];
 			}
 		}
 		return $array;
@@ -47,6 +51,10 @@ class UM_Builtin {
 		foreach ($fields as $field ) {
 			if ( isset( $this->predefined_fields[$field] ) ) {
 				$array = $this->predefined_fields[$field];
+			} elseif ( isset( $this->saved_fields[$field] ) ) {
+				$array = $this->saved_fields[$field];
+			} elseif ( isset( $this->custom_fields[$field] ) ) {
+				$array = $this->custom_fields[$field];
 			}
 		}
 		return $array;
