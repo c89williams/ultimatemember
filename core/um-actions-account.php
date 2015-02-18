@@ -337,9 +337,11 @@
 				
 				<?php
 				
-				foreach( $ultimatemember->account->tabs as $k => $arr ) { 
-					foreach( $arr as $id => $info ) { extract( $info ); 
 						
+				foreach( $ultimatemember->account->tabs as $k => $arr ) {
+					foreach( $arr as $id => $info ) {
+						$force_show = false;
+						extract( $info );
 						$current_tab = $ultimatemember->account->current_tab;
 						
 				
