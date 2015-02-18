@@ -143,6 +143,7 @@ class UM_Account {
 				
 			case 'general':
 				$args = 'user_login,first_name,last_name,user_email';
+				$args = apply_filters('um_get_tab_output_fields__general', $args);
 				$fields = $ultimatemember->builtin->get_specific_fields( $args );
 				foreach( $fields as $key => $data ){
 					$output .= $ultimatemember->fields->edit_field( $key, $data );
