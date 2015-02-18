@@ -103,6 +103,8 @@ class UM_Enqueue {
 	***/
 	function load_original() {
 	
+		$this->load_jquery();
+
 		$this->load_google_charts();
 	
 		$this->load_fonticons();
@@ -132,7 +134,17 @@ class UM_Enqueue {
 		$this->load_customjs();
 		
 	}
+
 	
+	/***
+	***	@Include jQuery
+	***/
+	function load_jquery(){
+
+		wp_enqueue_script('jquery');
+
+	}
+
 	/***
 	***	@Include Google charts
 	***/
@@ -167,7 +179,7 @@ class UM_Enqueue {
 	***/
 	function load_selectjs(){
 	
-		wp_register_script('um_select', um_url . 'assets/js/um-select.js', array('jquery') );
+		wp_register_script('um_select', um_url . 'assets/js/um-select.js' );
 		wp_enqueue_script('um_select');
 		
 		wp_register_style('um_select', um_url . 'assets/css/um-select.css' );
