@@ -108,7 +108,7 @@
 					break;
 					
 				case 'awaiting_email_confirmation':
-					$err = __('Your account is awaiting e-mail verifications.','ultimatemember');
+					$err = __('Your account is awaiting e-mail verification.','ultimatemember');
 					break;
 					
 				case 'rejected':
