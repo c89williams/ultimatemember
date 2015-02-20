@@ -10,7 +10,7 @@
 		if ($ultimatemember->shortcodes->message_mode == true) {
 			$args['template'] = 'message';
 			$ultimatemember->shortcodes->custom_message = um_user( um_user('status')  . '_message' );
-			um_reset_user();
+			//um_reset_user();
 		}
 		
 		foreach( $args as $k => $v ) {
