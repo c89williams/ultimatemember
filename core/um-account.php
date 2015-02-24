@@ -144,50 +144,75 @@ class UM_Account {
 		switch( $id ) {
 			
 			case 'notifications':
+				
 				$output = apply_filters("um_account_content_hook_{$id}", $output);
 				return $output;
+				
 				break;
 
 			case 'privacy':
+				
 				$args = 'profile_privacy,hide_in_members';
+				
 				$fields = $ultimatemember->builtin->get_specific_fields( $args );
 				foreach( $fields as $key => $data ){
 					$output .= $ultimatemember->fields->edit_field( $key, $data );
 				}
+				
 				return $output;
+				
 				break;
 				
 			case 'delete':
+				
 				$args = 'single_user_password';
+				
 				$fields = $ultimatemember->builtin->get_specific_fields( $args );
 				foreach( $fields as $key => $data ){
 					$output .= $ultimatemember->fields->edit_field( $key, $data );
 				}
+				
 				return $output;
+				
 				break;
 				
 			case 'general':
+			
 				$args = 'user_login,first_name,last_name,user_email';
+				if ( !um_get_option('account_name') ) {
+					$args = 'user_login,user_email';
+				}			
+				
 				$args = apply_filters('um_get_tab_output_fields__general', $args);
+
+				
 				$fields = $ultimatemember->builtin->get_specific_fields( $args );
 				foreach( $fields as $key => $data ){
 					$output .= $ultimatemember->fields->edit_field( $key, $data );
 				}
+				
 				return $output;
+				
 				break;
 				
 			case 'password':
+				
 				$args = 'user_password';
+				
 				$fields = $ultimatemember->builtin->get_specific_fields( $args );
 				foreach( $fields as $key => $data ){
 					$output .= $ultimatemember->fields->edit_field( $key, $data );
 				}
+				
 				return $output;
+				
 				break;
 				
 			default :
+				
 				$output = apply_filters("um_account_content_hook_{$id}", $output);
 				return $output;
+				
 				break;
 
 		}
@@ -231,8 +256,6 @@ class UM_Account {
 		do_action("um_before_form_is_loaded", $args);
 		
 		do_action("um_before_{$mode}_form_is_loaded", $args);
-		
-		do_action("um_before_{$template}_form_is_loaded", $args);
 		
 		$this->template_load( $template, $args );
 		

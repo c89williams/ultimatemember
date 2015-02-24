@@ -111,9 +111,7 @@ class UM_Shortcodes {
 		do_action("um_before_form_is_loaded", $args);
 		
 		do_action("um_before_{$mode}_form_is_loaded", $args);
-		
-		do_action("um_before_{$template}_form_is_loaded", $args);
-		
+
 		$this->template_load( $template, $args );
 		
 		$this->dynamic_css( $args );
@@ -196,30 +194,39 @@ class UM_Shortcodes {
 	function get_templates( $excluded = null ) {
 		
 		if ($excluded) {
-			$array[$excluded] = 'Default Template';
+			$array[$excluded] = __('Default Template','ultimatemember');
 		}
 		
-		$files = glob( um_path . 'templates/' . '*.php');
-		foreach($files as $file){
+		$paths[] = glob( um_path . 'templates/' . '*.php');
 		
-			$clean_filename = $this->get_template_name($file);
+		if ( file_exists( get_stylesheet_directory() . '/ultimate-member/templates/' ) ) {
+			$paths[] = glob( get_stylesheet_directory() . '/ultimate-member/templates/' . '*.php');
+		}
+		
+		foreach($paths as $k => $files){
 			
-			if (0 === strpos($clean_filename, $excluded)) {
-			
-			$source = file_get_contents( $file );
-			$tokens = token_get_all( $source );
-			$comment = array(
-				T_COMMENT,      // All comments since PHP5
-				T_DOC_COMMENT   // PHPDoc comments      
-			);
-			foreach( $tokens as $token ) {
-				if( in_array($token[0], $comment) && $clean_filename != $excluded ) {
-					$txt = $token[1];
-					$txt = str_replace('/* Template: ','',$txt);
-					$txt = str_replace(' */','',$txt);
-					$array[ $clean_filename ] = $txt;
+			foreach( $files as $file ) {
+				
+				$clean_filename = $this->get_template_name($file);
+				
+				if (0 === strpos($clean_filename, $excluded)) {
+				
+					$source = file_get_contents( $file );
+					$tokens = token_get_all( $source );
+					$comment = array(
+						T_COMMENT,      // All comments since PHP5
+						T_DOC_COMMENT   // PHPDoc comments      
+					);
+					foreach( $tokens as $token ) {
+						if( in_array($token[0], $comment) && $clean_filename != $excluded ) {
+							$txt = $token[1];
+							$txt = str_replace('/* Template: ','',$txt);
+							$txt = str_replace(' */','',$txt);
+							$array[ $clean_filename ] = $txt;
+						}
+					}
+				
 				}
-			}
 			
 			}
 			
