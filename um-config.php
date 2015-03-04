@@ -393,6 +393,14 @@ $this->sections[] = array(
         ),
 
         array(
+                'id'       => 'email_html',
+                'type'     => 'switch',
+                'title'    => __( 'Use HTML for E-mails?','ultimatemember' ),
+				'default'  => 0,
+				'desc' 	   => __('If you enable HTML for e-mails, you can customize the HTML e-mail templates found in <strong>templates/email</strong> folder.','ultimatemember'),
+        ),
+		
+        array(
                 'id'       => 'welcome_email_on',
                 'type'     => 'switch',
                 'title'    => __( 'Account Welcome Email','ultimatemember' ),
@@ -1541,6 +1549,15 @@ $this->sections[] = array(
 				'required'		=> array( 'register_secondary_btn', '=', 1 ),
         ),
 		
+        array(
+                'id'      		=> 'register_secondary_btn_url',
+                'type'     		=> 'text',
+                'title'    		=> __( 'Registration Secondary Button URL','ultimatemember' ),
+                'default'  		=> um_get_metadefault('register_secondary_btn_url'),
+				'desc' 	   		=> __('You can replace default link for this button by entering custom URL','ultimatemember'),
+				'required'		=> array( 'login_secondary_btn', '=', 1 ),
+        ),
+		
 		array(
 				'id'       		=> 'register_role',
                 'type'     		=> 'select',
@@ -1635,6 +1652,15 @@ $this->sections[] = array(
         ),
 		
         array(
+                'id'      		=> 'login_secondary_btn_url',
+                'type'     		=> 'text',
+                'title'    		=> __( 'Login Secondary Button URL','ultimatemember' ),
+                'default'  		=> um_get_metadefault('login_secondary_btn_url'),
+				'desc' 	   		=> __('You can replace default link for this button by entering custom URL','ultimatemember'),
+				'required'		=> array( 'login_secondary_btn', '=', 1 ),
+        ),
+		
+        array(
                 'id'       		=> 'login_forgot_pass_link',
                 'type'     		=> 'switch',
                 'title'    		=> __( 'Login Forgot Password Link','ultimatemember' ),
@@ -1658,6 +1684,7 @@ $this->sections[] = array(
 	
 );
 
+if ( um_get_option('enable_custom_css') ) {
 $this->sections[] = array(
 	
     'subsection' => true,
@@ -1675,6 +1702,7 @@ $this->sections[] = array(
 	)
 	
 );
+}
 
 /***
 ***	@
@@ -1740,6 +1768,15 @@ $this->sections[] = array(
                 'desc' 	   		=> __( 'Enter a url or page slug (e.g /about/) to enable loading the plugin\'s css and js on that page.','ultimatemember' ),
 				'add_text'		=> __('Add New Page','ultimatemember'),
 		),
+		
+        array(
+                'id'       		=> 'enable_custom_css',
+                'type'     		=> 'switch',
+                'title'   		=> __( 'Enable custom css tab?','ultimatemember' ),
+				'default' 		=> 0,
+				'on'			=> __('On','ultimatemember'),
+				'off'			=> __('Off','ultimatemember'),
+        ),
 		
         array(
                 'id'       		=> 'allow_tracking',

@@ -24,12 +24,11 @@ class UM_Admin_Metabox {
 	***/
 	function remove_rewrite_rules_option( $post_id ) {
 		if ( ! wp_is_post_revision( $post_id ) ) {
-			
+
 			if ( get_post_meta($post_id, '_um_core', true) ) {
-				flush_rewrite_rules( true ); // so they reset rewrite rules
 				delete_option('um_flush_rules');
 			}
-			
+
 		}
 	}
 	
@@ -373,6 +372,9 @@ class UM_Admin_Metabox {
 		delete_post_meta( $post_id, '_um_can_view_roles' );
 		delete_post_meta( $post_id, '_um_can_edit_roles' );
 		delete_post_meta( $post_id, '_um_can_delete_roles' );
+		
+		do_action('um_admin_before_saving_role_meta', $post_id );
+		
 		foreach( $_POST as $k => $v ) {
 			if (strstr($k, '_um_')){
 				update_post_meta( $post_id, $k, $v);

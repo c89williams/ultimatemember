@@ -30,6 +30,7 @@
 						extract( $info );
 						$current_tab = $ultimatemember->account->current_tab;
 
+						if ( $force_show || isset($info['custom']) || um_get_option('account_tab_'.$id ) == 1 || $id == 'general' ) {
 
 						if ( $force_show || um_get_option('account_tab_'.$id ) == 1 || $id == 'general' ) {
 							?>
