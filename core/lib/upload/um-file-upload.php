@@ -16,6 +16,7 @@ if(isset($_FILES[$id]['name'])) {
 	
 		$temp = $_FILES[$id]["tmp_name"];
 		$file = $_FILES[$id]["name"];
+		$file = str_replace(array('#','(',')','+','&','?','%','{','}','[',']','=',',',';','>','<','~',':','$',' '),'',$file);
 		$extension = pathinfo($file, PATHINFO_EXTENSION);
 		
 		$error = $ultimatemember->files->check_file_upload( $temp, $extension, $id );
@@ -30,5 +31,7 @@ if(isset($_FILES[$id]['name'])) {
 
     }
 	
+} else {
+	$ret['error'] = __('Theme Compatibility Issue.','ultimatemember');
 }
 echo json_encode($ret);

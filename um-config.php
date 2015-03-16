@@ -98,6 +98,16 @@ $this->sections[] = array(
 				'off'			=> __('No','ultimatemember'),
         ),
 		
+        array(
+                'id'       		=> 'reset_require_strongpass',
+                'type'     		=> 'switch',
+                'title'   		=> __( 'Require a strong password? (when user resets password only)','ultimatemember' ),
+				'default' 		=> 0,
+				'desc' 	   		=> __('Enable or disable a strong password rules on password reset and change procedure','ultimatemember'),
+				'on'			=> __('On','ultimatemember'),
+				'off'			=> __('Off','ultimatemember'),
+        ),
+		
 	)
 
 );
@@ -824,6 +834,22 @@ $this->sections[] = array(
     'icon'       => 'um-faicon-cloud-upload',
     'title'      => __( 'Uploads','ultimatemember'),
     'fields'     => array(
+	
+		array(
+				'id'       		=> 'profile_photo_max_size',
+                'type'     		=> 'text',
+                'title'    		=> __( 'Profile Photo Maximum File Size','ultimatemember' ),
+                'desc' 	   		=> __( 'Sets a maximum size for the uploaded photo','ultimatemember' ),
+				'validate' 		=> 'numeric',
+        ),
+		
+		array(
+				'id'       		=> 'cover_photo_max_size',
+                'type'     		=> 'text',
+                'title'    		=> __( 'Cover Photo Maximum File Size','ultimatemember' ),
+                'desc' 	   		=> __( 'Sets a maximum size for the uploaded cover','ultimatemember' ),
+				'validate' 		=> 'numeric',
+        ),
 		
 		array(
 				'id'       		=> 'photo_thumb_sizes',
@@ -1353,6 +1379,16 @@ $this->sections[] = array(
         ),
 		
         array(
+                'id'       		=> 'profile_show_social_links',
+                'type'     		=> 'switch',
+                'title'    		=> __( 'Show social links in profile header','ultimatemember' ),
+				'default' 		=> um_get_metadefault('profile_show_social_links'),
+				'desc' 	   		=> __('Switch on/off the social links on profile header','ultimatemember'),
+				'on'			=> __('On','ultimatemember'),
+				'off'			=> __('Off','ultimatemember'),
+        ),
+		
+        array(
                 'id'       		=> 'profile_show_bio',
                 'type'     		=> 'switch',
                 'title'    		=> __( 'Show user description in header','ultimatemember' ),
@@ -1721,6 +1757,16 @@ $this->sections[] = array(
 				'full_width'    	=> true,
 		),
 	
+        array(
+                'id'       		=> 'enable_timebot',
+                'type'     		=> 'switch',
+                'title'   		=> __( 'Enable Time Check Security','ultimatemember' ),
+				'default' 		=> 1,
+				'desc' 	   		=> __('Turn this option off if you have a conflict with other plugins causing a spam bot message to appear unexpectedly.','ultimatemember'),
+				'on'			=> __('On','ultimatemember'),
+				'off'			=> __('Off','ultimatemember'),
+        ),
+		
         array(
                 'id'       		=> 'disable_minify',
                 'type'     		=> 'switch',

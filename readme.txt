@@ -7,7 +7,7 @@ Tags: access control, author, authors, author profile, comments, community, comm
 Requires at least: 4.1
 Tested up to: 4.1.1
 
-Stable Tag: 1.0.71
+Stable Tag: 1.0.85
 
 License: GNU Version 2 or Any Later Version
 
@@ -41,6 +41,19 @@ Features of the plugin include:
 * Developer friendly with dozens of actions and filters
 * Multi-site compatibility
 * Mandrill compatibility
+
+**Paid Extensions**
+
+You can extend the power of Ultimate Member with one of our premium extensions:
+
+* [Social Login](https://ultimatemember.com/extensions/social-login/)
+* [MailChimp](https://ultimatemember.com/extensions/mailchimp/)
+* [bbPress](https://ultimatemember.com/extensions/bbpress/)
+* [myCRED](https://ultimatemember.com/extensions/mycred/)
+
+**Free Extensions**
+
+* [Google reCAPTCHA](https://ultimatemember.com/extensions/google-recaptcha/)
 
 **Front-end registration**
 
@@ -188,6 +201,86 @@ The plugin works with popular caching plugins by automatically excluding Ultimat
 16. Screenshot 16
 
 == Changelog ==
+
+= 1.0.85: March 14, 2015 =
+
+* New: added option to show user social links in profile header (optional)
+* New: added option to display post featured image in profile "posts" tab
+* Tweak: improved error reporting for theme conflicts on photo upload
+* Fixed: issue with comments tab on profile
+
+= 1.0.84: March 13, 2015 =
+
+* New: adds automatic body class to UM core pages automatically
+* Fixed: important jQuery issue
+* Fixed: upload security issue - extension error was empty
+
+= 1.0.83: March 12, 2015 =
+
+* New: added a logout template If user is already logged in (customizable)
+* New: strong password formula not required when resetting password (optional)
+* Fixed: jQuery issue with live() method - Thanks to Jim Wetton
+
+= 1.0.82: March 11, 2015 =
+
+* Fixed: issue with saving user account general tab
+
+= 1.0.81: March 11, 2015 =
+
+* New: official support for plugin extensions released
+
+= 1.0.80: March 10, 2015 =
+
+* Tweak: added licensing support to plugin core
+* Fixed: issue with account form
+
+= 1.0.79: March 10, 2015 =
+
+* Tweak: Redux up to date
+* Fixed: security issue related to deleting a temp file via ajax
+* Fixed: bug with a php warning on undefined field type
+
+Credits to "James Golovich http://www.pritect.net" for the security checks
+
+= 1.0.78: March 10, 2015 =
+
+* Fixed: important correction from previous version
+
+= 1.0.77: March 10, 2015 =
+
+* New: integration with comments to show user profile link instead of user link (not compatible with all themes)
+* New: option to control maximum size of uploaded profile photo
+* New: option to control maximum size of uploaded cover photo
+* Tweak: URL fields will are now treated as hyperlinks
+* Fixed: bug with member directory privacy option
+* Fixed: bug with using # as a character in file or image upload
+
+= 1.0.76: March 7, 2015 =
+
+* New: added {user_avatar_small} tag to display user photo in menu (requires extra css work)
+* Tweak: Removed !important css rules from colors and backgrounds
+* Fixed: issue with content block field
+
+= 1.0.75: March 5, 2015 =
+
+* New: improved & modern html e-mail templates
+* New: addon to transfer BuddyPress profile photos to Ultimate Member (user request)
+* New: added option to turn off time bot feature (fixes conflict with plugins)
+* New: added built-in addons support
+* Tweak: improved backend design and css
+
+= 1.0.74: March 4, 2015 =
+
+* Fixed: bug with numeric validation for a field
+* Fixed: bug with conditional logic rules with checkbox
+
+= 1.0.73: March 3, 2015 =
+
+* Tweak: general code improvements
+
+= 1.0.72: March 2, 2015 =
+
+* Fixed: bug with e-mail activation since last update
 
 = 1.0.71: March 2, 2015 =
 

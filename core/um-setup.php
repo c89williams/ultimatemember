@@ -4,6 +4,8 @@ class UM_Setup {
 
 	function __construct() {
 
+		add_action('init',  array(&$this, 'install_basics'), 9);
+		
 		add_action('init',  array(&$this, 'install_default_forms'), 9);
 		
 		add_action('init',  array(&$this, 'install_default_roles'), 9);
@@ -89,6 +91,7 @@ class UM_Setup {
 			'_um_secondary_btn_hover' => '#e5e5e5',
 			'_um_secondary_btn_text' => '#666',
 			'_um_profile_show_name' => 1,
+			'_um_profile_show_social_links' => 0,
 			'_um_profile_show_bio' => 1,
 			'_um_profile_bio_maxchars' => 180,
 			'_um_profile_header_menu' => 'bc',
@@ -224,6 +227,14 @@ class UM_Setup {
 			$perms = array_merge($this->perms, $this->nonadmin_perms);
 			return $perms;
 		}
+	}
+	
+	/***
+	***	@Basics
+	***/
+	function install_basics() {
+		if ( !get_option('__ultimatemember_sitekey') )
+			update_option('__ultimatemember_sitekey', str_replace( array('http://','https://'), '', sanitize_user( get_bloginfo('url') ) ) . '-' . wp_generate_password( 20, false ) );
 	}
 	
 	/***

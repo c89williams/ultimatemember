@@ -428,15 +428,15 @@ class UM_Admin_Metabox {
 		}
 		
 		// needed on forms only
-		if ( isset( $screen->id ) && strstr( $screen->id, 'um_form' ) ) {
+		if ( !isset( $this->is_loaded ) && isset( $screen->id ) && strstr( $screen->id, 'um_form' ) ) {
 		
 			$settings['textarea_rows'] = 8;
 			
-			echo '<div class="um-hidden-editor-edit" style="display: none">';
+			echo '<div class="um-hidden-editor-edit" style="display:none;">';
 			wp_editor( '', 'um_editor_edit', $settings );
 			echo '</div>';
 			
-			echo '<div class="um-hidden-editor-new" style="display: none">';
+			echo '<div class="um-hidden-editor-new" style="display:none;">';
 			wp_editor( '', 'um_editor_new', $settings );
 			echo '</div>';
 			
@@ -617,7 +617,7 @@ class UM_Admin_Metabox {
 						
 						<a href="#" class="button" data-modal="UM_fonticons" data-modal-size="normal" data-dynamic-content="um_admin_fonticon_selector" data-arg1="" data-arg2="" data-back="<?php echo $back; ?>">Choose Icon</a>
 						
-						<span class="um-admin-icon-value"><?php if ( $this->edit_mode_value ) { ?><i class="<?php echo $this->edit_mode_value; ?>"></i><?php } else { ?>No icon<?php } ?></span>
+						<span class="um-admin-icon-value"><?php if ( $this->edit_mode_value ) { ?><i class="<?php echo $this->edit_mode_value; ?>"></i><?php } else { ?>No Icon<?php } ?></span>
 						
 						<input type="hidden" name="_icon" id="_icon" value="<?php echo (isset( $this->edit_mode_value ) ) ? $this->edit_mode_value : ''; ?>" />
 						
@@ -645,7 +645,7 @@ class UM_Admin_Metabox {
 						
 						<a href="#" class="button" data-modal="UM_fonticons" data-modal-size="normal" data-dynamic-content="um_admin_fonticon_selector" data-arg1="" data-arg2="" data-back="<?php echo $back; ?>">Choose Icon</a>
 						
-						<span class="um-admin-icon-value"><?php if ( $this->edit_mode_value ) { ?><i class="<?php echo $this->edit_mode_value; ?>"></i><?php } else { ?>No icon<?php } ?></span>
+						<span class="um-admin-icon-value"><?php if ( $this->edit_mode_value ) { ?><i class="<?php echo $this->edit_mode_value; ?>"></i><?php } else { ?>No Icon<?php } ?></span>
 						
 						<input type="hidden" name="_icon" id="_icon" value="<?php echo (isset( $this->edit_mode_value ) ) ? $this->edit_mode_value : ''; ?>" />
 						
