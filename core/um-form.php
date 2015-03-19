@@ -28,6 +28,13 @@ class UM_Form {
 	}
 	
 	/***
+	***	@remove errors
+	***/
+	function remove_error( $key ) {
+		unset($this->errors[$key]);
+	}
+
+	/***
 	***	@has error
 	***/
 	function has_error( $key ) {
