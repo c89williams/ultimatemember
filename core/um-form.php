@@ -31,7 +31,10 @@ class UM_Form {
 	***	@remove errors
 	***/
 	function remove_error( $key ) {
-		unset($this->errors[$key]);
+		unset( $this->errors[$key] );
+		if ( count( $this->errors ) == 0 ) {
+			$this->errors = null; //reset to default
+		}
 	}
 
 	/***
